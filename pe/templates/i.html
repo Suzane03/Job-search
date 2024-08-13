@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Job Recommendation </title>
+
+  <style>
+    body {
+      background-image: linear-gradient(to left, #ad5389, #3c1053);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .input-field {
+      margin-bottom: 20px;
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border: 1px solid #0095ff;
+    }
+
+    .submit-button {
+      background-color: #0095ff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .submit-button:hover {
+      background-color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <form action="/" method="POST">
+    <h1> Find Jobs Based on Your Skills and Location </h1>
+    <p> Enter your skills separated by commas (e.g., Python, Machine Learning, Data Science) </p>
+    <input type="text" class="input-field" name="skills" required>
+
+    <p> Enter your preferred location (optional) </p>
+    <input type="text" class="input-field" name="location">
+
+    <p> Select your experience level (optional) </p>
+    <input type="text" class="input-field" name="experience">
+
+    <button type="submit" class="submit-button"> Find Jobs! </button>
+  </form>
+</body>
+</html>

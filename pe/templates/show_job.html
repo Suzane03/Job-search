@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Job Recommendations </title>
+
+  <style>
+    body {
+      background-size: contain;
+      background-repeat: repeat;
+      background-image: linear-gradient(to left, pink, orange);
+    }
+
+    #job {
+      color: white;
+      background-image: linear-gradient(to left, #42275a, #734b6d);
+      background-image: linear-gradient(to right, #42275a, #734b6d);
+      margin: 0.5%;
+      padding-left: 1%;
+      line-height: 30px;
+    }
+
+    #info {
+      color: black;
+      margin: 0.5%;
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+  {% if jobs %}
+    <h2 id="info">
+      Your Skills : {{ job_skills }} <br>
+      Top 1 Recommendations out Total {{ jobs|length }}  Jobs Found:  
+    </h2>
+
+    {% for job in jobs[:10] %}
+    <div id="job">
+      **Job Title:** {{ job['title'] }} <br>
+      **Location:** {{ job.get('location', 'NA') }} <br>
+      **URL:** <a href="{{ job['url'] }}">{{ job['url'] }}</a><br>
+      **Skills:**
+      {% for skill in job['skills'] %}
+        {{ skill }} {% endfor %} <br>
+      **Match Score:** {{ job['rank'] }}<br>
+      **Experience:** {{ job['experience'] }}
+    </div>
+    <br><br>
+  {% endfor %}
+  
+  {% else %}
+    <h2> No jobs found matching your skills. Please try broadening your search criteria: </h2>
+    <ul>
+      <li> Try broadening your skills search or using synonyms for your skills. </li>
+      <li> Remove the location filter if applicable. </li>
+
+    </ul>
+    
+    {% endif %}
+</body>
+</html>
